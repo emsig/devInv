@@ -35,11 +35,11 @@ def plot_obs_initial(name):
     fig, axs = plt.subplots(
             2, 1, figsize=(9, 6), constrained_layout=True, sharex=True)
 
-    axs[0].plot(np.abs(sim.data.observed.squeeze()), "k", label="Observed")
-    axs[0].plot(np.abs(sim.data.start.squeeze()), "C0.", label="Initial Model")
+    axs[0].plot(np.abs(sim.data.observed.data.ravel()), "k", label="Observed")
+    axs[0].plot(np.abs(sim.data.start.data.ravel()), "C0.", label="Initial Model")
 
-    rms = 100*np.abs((sim.data.start.squeeze() - sim.data.observed.squeeze()))
-    rms /= np.abs(sim.data.observed.squeeze())
+    rms = 100*np.abs((sim.data.start.data.ravel() - sim.data.observed.data.ravel()))
+    rms /= np.abs(sim.data.observed.data.ravel())
     axs[1].plot(rms, "C1", label="RMS")
 
     axs[0].set_yscale('log')
@@ -126,11 +126,15 @@ def plot_responses(sim):
     real = [int(k[2:]) for k in sim.data.keys() if k.startswith('it')]
     for i in real:
         n = f"it{i}"
-        axs[0].plot(np.abs(sim.data[n].squeeze()), f"C{i % 10}-", label=n)
-        rms = 100*np.abs((sim.data[n].squeeze() - sim.data.observed.squeeze()))
-        rms /= np.abs(sim.data.observed.squeeze())
-        axs[1].plot(rms, f"C{i % 10}-")
-    axs[0].plot(np.abs(sim.data.observed.squeeze()), "k.")
+        axs[0].plot(np.abs(sim.data[n].data.ravel()), f"C{i % 10}-", label=n)
+        nrmsd = 200*np.abs(
+                sim.data[n].data.ravel() - sim.data.observed.data.ravel()
+            ) / (
+                np.abs(sim.data[n].data.ravel()) +
+                np.abs(sim.data.observed.data.ravel())
+            )
+        axs[1].plot(nrmsd, f"C{i % 10}-")
+    axs[0].plot(np.abs(sim.data.observed.data.ravel()), "k.")
     axs[0].set_yscale('log')
     axs[1].set_yscale('log')
     axs[0].legend()

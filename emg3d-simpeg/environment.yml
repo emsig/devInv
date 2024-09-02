@@ -1,0 +1,17 @@
+name: simpeg-emg3d
+channels:
+    - conda-forge
+dependencies:
+    - python
+    - jupyter
+    - ipykernel
+    - xarray
+    - matplotlib
+    - ipympl
+    - h5py
+    - tqdm
+    - scooby
+    - pip
+    - pip:
+      - git+https://github.com/emsig/emg3d@inv-simpeg
+      - git+https://github.com/simpeg/simpeg@main
