@@ -35,10 +35,12 @@ def plot_obs_initial(name):
     fig, axs = plt.subplots(
             2, 1, figsize=(9, 6), constrained_layout=True, sharex=True)
 
-    axs[0].plot(np.abs(sim.data.observed.data.ravel()), "k", label="Observed")
-    axs[0].plot(np.abs(sim.data.start.data.ravel()), "C0.", label="Initial Model")
+    axs[0].plot(np.abs(sim.data.observed.data.ravel()),
+                "k", label="Observed")
+    axs[0].plot(np.abs(sim.data.start.data.ravel()),
+                "C0.", label="Initial Model")
 
-    rms = 100*np.abs((sim.data.start.data.ravel() - sim.data.observed.data.ravel()))
+    rms = 100*np.abs(sim.data.start.data - sim.data.observed.data).ravel()
     rms /= np.abs(sim.data.observed.data.ravel())
     axs[1].plot(rms, "C1", label="RMS")
 
@@ -48,11 +50,11 @@ def plot_obs_initial(name):
     axs[1].legend()
 
 
-def plot_models(sim, mstart, mtrue, zind=1):
+def plot_models(sim, mstart, mtrue, zind=1, vmin=0.1, vmax=1000):
     depth = np.round(mstart.grid.cell_centers_z[zind], 2)
     print(f"Depth slice: {depth} m")
 
-    popts1 = {'cmap': 'Spectral_r', 'norm': LogNorm(vmin=0.1, vmax=1000)}
+    popts1 = {'cmap': 'Spectral_r', 'norm': LogNorm(vmin=vmin, vmax=vmax)}
     # popts2 = {'edgecolors': 'grey', 'linewidth': 0.5, 'cmap': 'Spectral_r',
     #           'norm': LogNorm(vmin=0.1, vmax=1000)}
     opts = {'v_type': 'CC', 'normal': 'Y'}
@@ -124,7 +126,11 @@ def plot_responses(sim):
     fig, axs = plt.subplots(
             2, 1, figsize=(9, 6), constrained_layout=True, sharex=True)
     real = [int(k[2:]) for k in sim.data.keys() if k.startswith('it')]
-    for i in real:
+    i = max(1, int(np.round(len(real)/7, 0)))
+    ireal = real[::i]
+    if ireal[-1] != real[-1]:  # Ensure last element is included
+        ireal.append(real[-1])
+    for i in ireal:
         n = f"it{i}"
         axs[0].plot(np.abs(sim.data[n].data.ravel()), f"C{i % 10}-", label=n)
         nrmsd = 200*np.abs(
