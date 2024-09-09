@@ -4,6 +4,7 @@ channels:
 dependencies:
     - python
     - simpeg>=0.22.1
+    - scipy<1.14.0  # Until simpeg>0.22.1
     - jupyter
     - ipykernel
     - xarray
