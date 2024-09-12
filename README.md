@@ -30,3 +30,14 @@ notebooks here:
 - Works of [@WouterDls](https://github.com/WouterDls),
   [@mariacarrizo](https://github.com/mariacarrizo),
   [@aignerlukas](https://github.com/aignerlukas).
+
+
+
+### Old (private) dev-repos; just a note for myself to not forget them:
+
+- [prisae/iemg3d](https://github.com/prisae/iemg3d)
+- [prisae/iempymod](https://github.com/prisae/iempymod)
+- [prisae/gitarojim-emg3d-inv](https://github.com/prisae/gitarojim-emg3d-inv)
+- [prisae/empymod-derivatives](https://github.com/prisae/empymod-derivatives)
+- [prisae/emg3d_inversion](https://github.com/prisae/emg3d_inversion) (fork from [@mariacarrizo](https://github.com/mariacarrizo))
+- [emsig/sdirectives](https://github.com/emsig/sdirectives)

@@ -3,8 +3,7 @@ channels:
     - conda-forge
 dependencies:
     - python
-    - simpeg>=0.22.1
-    - scipy<1.14.0  # Until simpeg>0.22.1
+    - simpeg>=0.22.2
     - jupyter
     - ipykernel
     - xarray
