@@ -7,6 +7,7 @@ dependencies:
     - jupyter
     - ipykernel
     - pygimli>=1.5.2
+    - discretize
     - empymod
     - xarray
     - matplotlib
