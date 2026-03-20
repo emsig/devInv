@@ -25,6 +25,7 @@ See the two related issues:
 There are various inversion results out there for empymod on top of the
 notebooks here:
 - [pyGIMLi(empymod)](https://github.com/gimli-org/transform2021/blob/main/6_Inversion_with_any_forward_operator.ipynb)
+- sTEM: [pyGIMLi(empymod)](https://github.com/halbmy/TEM)
 - [wbi - empymod](https://github.com/WouterDls/1D-wavelet-based-inversion/blob/main/examples/scripts/example_empymod.py)
 - [OpenGeophysics/scratchpad - SimPEG(empymod)](https://github.com/OpenGeophysics/scratchpad)
 - Works of [@WouterDls](https://github.com/WouterDls),
