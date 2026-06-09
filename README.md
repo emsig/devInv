@@ -7,8 +7,8 @@ Eventually, everything should end up in the packages or their galleries.
 
 ## emg3d
 
-- SimPEG(emg3d)
-- pyGIMLi(emg3d)
+- SimPEG(emg3d) [issue #341](https://github.com/emsig/emg3d/pull/341)
+- pyGIMLi(emg3d) [issue #340](https://github.com/emsig/emg3d/pull/340)
 
 
 ## empymod
