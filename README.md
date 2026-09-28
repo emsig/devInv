@@ -10,6 +10,10 @@ Eventually, everything should end up in the packages or their galleries.
 - SimPEG(emg3d) [issue #341](https://github.com/emsig/emg3d/pull/341)
 - pyGIMLi(emg3d) [issue #340](https://github.com/emsig/emg3d/pull/340)
 
+### Publications
+Publications where emg3d was used as forward modelling engine in an inversion:
+
+- Perkovich et al., 2026, International Journal of Greenhouse Gas Control: Feasibility assessment of semi-airborne CSEM monitoring for CO2 storage in saline aquifers: A kemper CarbonSAFE field study; [DOI: 10.1016/j.ijggc.2026.104750](https://doi.org/10.1016/j.ijggc.2026.104750).
 
 ## empymod
 
